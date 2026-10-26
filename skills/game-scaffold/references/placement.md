@@ -22,11 +22,13 @@ they went). `init.mjs` follows this table; follow it by hand too.
 | Kill-gate prototype | `prototypes/killgate/` | `prototypes/` | `prototypes/` | — |
 | Browser helper | `tools/browser.mjs` | `tools/browser.mjs` | `tools/browser.mjs` | scaffold |
 | Phone smoke | `tools/smoke.mjs` (adapter at the top) | `tools/smoke.mjs dist` | `tools/smoke.mjs` | scaffold |
+| Contact sheet | `tools/contact-sheet.mjs` | same | same | scaffold |
 | Build check | `tools/check-bundle.mjs` (file + site) | `tools/check-bundle.mjs` (site = `dist`) | `tools/check-bundle.mjs` (site) | scaffold |
 | Build | `tools/bundle.js` → `dist/<slug>.html`, `dist/<slug>.embed.html`, `dist/site/` | `vite build && node tools/stamp.mjs dist` | `tools/build-site.mjs` → `dist/site/` | scaffold |
 | Build id stamp | inside `tools/bundle.js` | `tools/stamp.mjs` | `tools/stamp.mjs` (via build-site) | scaffold / release |
 | Release kit (itch zip, press, pre-public) | `tools/` | `tools/` | `tools/` | game-release |
-| Narrative tools (validate, lint, continuity, audit, transcript) | — | `tools/` | — | game-narrative |
+| Story engine | — | `packages/engine/`, `packages/tools/` | — | game-narrative |
+| Narrative tools (validate, bot, transcript; lint, scan, continuity, audit) | — | `tools/`; `tools/narrative/` | — | game-narrative |
 | Pages workflow | `.github/workflows/pages.yml` (one workflow only) | same | same | scaffold |
 | Design docs | `docs/` (SPEC, DESIGN, FRAME-*, ECONOMY, …) | same | same | — |
 | Build output | `dist/` (gitignored) | `dist/` | `dist/` | — |

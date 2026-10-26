@@ -34,11 +34,15 @@ three actions, a ledger, a win and a loss) so every instrument has something to
 prove; `docs/SPEC.md`, `DESIGN.md`, `FRAME-template.md`,
 `FRAME-PLAYTEST-template.md`; `sim/` with the game-measure kit and an adapter;
 `test/` with invariants, the save contract and a v1 fixture; `tools/` with
-bundle, check-bundle, smoke, make-icons, stamp, browser. Replace the placeholder
+bundle, check-bundle, smoke, make-icons, stamp, browser, contact-sheet (repeated
+visuals side by side at true size: look at it). Replace the placeholder
 from `src/data/` and `src/engine/turn.js` outward; keep the facade
 (`newGame`, `advance`, `view`) and the conventions the tools rely on
 (`[data-act]`, `[data-action]`, `[data-tab]`, `.hud .turn`), or adapt the
 header of `tools/smoke.mjs`.
+
+For the agent, not the game: `scripts/replace_once.py FILE OLD NEW` (or `--pairs`)
+for scripted edits that fail on zero or extra matches, never a bare sed.
 
 ## Existing game
 

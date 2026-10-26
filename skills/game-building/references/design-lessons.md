@@ -1,7 +1,7 @@
 # Design lessons: what made the games better to play
 
 Part of the old skill's honest gap was "nothing measures fun". Fun still needs a
-human, but the eight builds produced recurring design findings that hold up across
+human, but the builds produced recurring design findings that hold up across
 genres. Each is a pattern to apply, with where it came from.
 
 ---
@@ -133,28 +133,10 @@ every gate when you change the length.
 
 ## 6. Narrative games (KA, VK)
 
-- **Process:** frame (one doc per chapter or feature, for approval) → calibration
-  (two or three scenes at full polish to settle voice and length) → build →
-  scripted-plan transcripts for reading → playtest → revise.
-- **Tight prose, Continue pages.** KA's first scenes were "too long-winded"; scenes
-  now break into beats with `[break]`, and words saved go into branching. Never pad
-  to a word count.
-- **Branching over length; every chapter has more scenes than the last, not more
-  scenes seen.** Choices early open and close paths later (KA: 402 flags, 187 that
-  change later mechanics).
-- **Continuity is engine work** (F8): tokens for rank, age, the heir, the jarl of
-  the day; dead people stay dead; children are their age.
-- **Style lint**: banned modern words, banned narrator tics ("It is not X. It is
-  Y."), banned leaked authoring notes ("if you are Hugh Fletcher's son"), banned
-  clock time in a pre-clock world. Lists live in `content/style-guide.md`; the lint
-  reads them.
-- **Validator rules that protect the player:** every scene has an unconditional
-  choice (no dead ends); death only from a choice marked lethal with a warning in
-  the text first; every ending reachable from every background.
-- **The ending names the player's own turning points** (KA: ~230 forks tied to
-  flags; each chapter's heaviest few shown, with the road not taken).
-- **Sequel contract:** KA exports the dynasty as a versioned code; add fields
-  freely, rename only with a version bump and a reader for the old version.
+Moved to game-narrative (`references/narrative.md`): the frame → calibration → build →
+transcript → playtest loop, branching over length, continuity as engine work, the
+validator's player-protecting rules, endings that name the player's turning points,
+and the sequel contract.
 
 ## 7. Historically grounded, not historically flavoured
 

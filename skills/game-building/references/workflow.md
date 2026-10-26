@@ -10,15 +10,15 @@ Touchline) went straight to code and paid for it in retrofits.
 
 | Stage | Output | Gate to pass before the next |
 |---|---|---|
-| 0. Backlog | Two-line entry in `docs/game-backlog.md` | Author picks it |
+| 0. Backlog | Two-line entry in `Game-Workshop/docs/game-backlog.md` | Author picks it |
 | 1. Spec | One page (template below) | Author approves |
 | 2. Kill gate | Numbers-only prototype, fixed policies x seeds | Decisions differ measurably; win reachable but not trivial; no strategy trivially dominant |
 | 3. Phase 0 proposal | `docs/DESIGN.md`: stack, architecture, schema, scope pushback | Author approves |
-| 4. Phase 1: engine + instruments | Pure engine, bot with progress assertion, invariant tests, validator, smoke test, placeholder UI, PWA, Pages | Bot plays N full runs with no stalls; harness matrices vary sensibly; installs on a phone |
+| 4. Phase 1: engine + instruments | game-scaffold `init.mjs` (and game-narrative `install.mjs` for a story game): pure engine, bot with progress assertion, invariant tests, validator, smoke test, placeholder UI, PWA, Pages; then `sim/adapter.js` for game-measure | Bot plays N full runs with no stalls; harness matrices vary sensibly; installs on a phone |
 | 5. Calibration round | 2-3 representative scenes/systems at full polish | Author verdict on voice, look, UI density, option count |
 | 6. Vertical slice | One complete stretch (a year, a chapter, a season) | A human plays it and wants the next one |
 | 7. Breadth loop | Frame → approve → build → measure → playtest → revise, per feature | Each feature's claims measured; decisions logged |
-| 8. Release pass | itch zip, store art, page copy, Pages link | Played from the uploaded zip; copy checked against the build |
+| 8. Release pass | game-release: itch zip, store art, page copy, Pages link | `pre-public.mjs` clean; played from the uploaded draft on a phone |
 
 Skip stages honestly, not silently. A one-evening prototype needs stages 1, 2 and 4
 at most; say which you are skipping and why.
@@ -89,13 +89,21 @@ The pattern from CF, TL and VK playtest fixes:
   Rewind, stripped from release builds by `VITE_RELEASE=1`).
 - **Scripted plans → Markdown transcripts** (KA `docs/playthroughs/`) let the author
   and you read a whole route without clicking.
-- **One `npm run check`** that runs typecheck, tests, validate, lint, continuity
-  and a short bot batch. KA and VK both have it; run it before every commit.
+- **One `npm run check`** that runs typecheck, tests, the build, the bundle check
+  and the phone smoke test, plus validate, lint, continuity and render scan for a
+  story game, and a short bot batch. The scaffold writes it; run it before every
+  commit. Imperator's check ran neither the bundle check nor the smoke test until the
+  scaffold's audit flagged it.
+- **Folders:** `docs/` holds documents; build output goes to `dist/`, uploads to
+  `release/`, measurement output to `out/`, none of them committed. Civ-City and
+  Farmyard deploy from `docs/` and move to `dist/` when they next ship.
+- **Scratch scripts** are named `tools/_*.mjs` or `*.tmp.*`, which the scaffold's
+  `.gitignore` keeps out of commits (Vikingr committed three, Knight of Adalia two).
 - **Commit at each green step** with the measured numbers in the message.
 
 ## Documents and their templates
 
-### docs/game-backlog.md entry
+### Backlog entry (`Game-Workshop/docs/game-backlog.md`)
 ```
 ### <Name>
 <Setting, period>. Core loop: <verb> → <verb> → <verb>. Scarce resource: <x>.
@@ -135,7 +143,7 @@ the build differs from the plan above, this section wins."
 ```
 
 ### Commit messages
-The house style (all eight repos): a title saying what the player gets or what was
+The house style (every repo): a title saying what the player gets or what was
 wrong, in plain words ("Hay needs no plow, and most personal traits were pure
 decoration"); a body with the cause, how it was found (by playing, by an
 instrument, by looking), the fix, the measured balance impact with run counts and

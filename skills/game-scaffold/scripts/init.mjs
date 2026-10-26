@@ -78,6 +78,7 @@ const COMMON_DOCS = [
   ['common/tools/make-icons.mjs', 'tools/make-icons.mjs', 'infra'],
   ['common/tools/stamp.mjs', 'tools/stamp.mjs', 'infra'],
   ['common/tools/smoke.mjs', 'tools/smoke.mjs', 'infra'],
+  ['common/tools/contact-sheet.mjs', 'tools/contact-sheet.mjs', 'infra'],
   ['common/tools/check-bundle.mjs', 'tools/check-bundle.mjs', 'infra'],
 ];
 const KIT = [

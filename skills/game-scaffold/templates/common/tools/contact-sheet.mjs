@@ -1,5 +1,5 @@
 // Render many generated visuals side by side at the sizes the game really uses,
-// screenshot the sheet, and LOOK at it. Run: node contact-sheet.mjs items.json out.png
+// screenshot the sheet, and LOOK at it. Run: node tools/contact-sheet.mjs items.json [out/contact-sheet.png]
 //
 // items.json: [{ "label": "Florence", "svg": "<svg ...>" } | { "label": "...", "src": "path/or/data-uri" }]
 // Produce it from your generator in a few lines (call the same function the game
@@ -16,12 +16,10 @@
 //    would catch it. Looking did.
 // Sizes default to one large and the smallest size the UI draws. Set SIZES=56,18.
 
-const PW = process.env.PLAYWRIGHT_PATH || '/opt/node22/lib/node_modules/playwright/index.js';
-const pw = await import(PW);
-const chromium = pw.chromium || pw.default?.chromium;
 import { readFile, writeFile } from 'node:fs/promises';
+import { launch } from './browser.mjs';
 
-const [itemsPath, out = '/tmp/contact-sheet.png'] = process.argv.slice(2);
+const [itemsPath, out = 'out/contact-sheet.png'] = process.argv.slice(2);
 if (!itemsPath) { console.error('usage: node contact-sheet.mjs items.json [out.png]'); process.exit(2); }
 const items = JSON.parse(await readFile(itemsPath, 'utf8'));
 const sizes = (process.env.SIZES || '64,18').split(',').map(Number);
@@ -39,9 +37,10 @@ svg,img{image-rendering:pixelated}.l{margin-top:4px;white-space:nowrap;overflow:
 </style><div class="g">${items.map((it) => `<div class="c"><div class="a">${cell(it)}</div><div class="l">${esc(it.label ?? '')}</div></div>`).join('')}</div>`;
 
 const htmlOut = out.replace(/\.png$/, '.html');
+await (await import('node:fs/promises')).mkdir((await import('node:path')).dirname(out), { recursive: true });
 await writeFile(htmlOut, html);
-const browser = await chromium.launch();
-const page = await browser.newPage({ viewport: { width: 1200, height: 800 } });
+const { browser, page } = await launch({ phone: false });
+await page.setViewportSize({ width: 1200, height: 800 });
 await page.setContent(html, { waitUntil: 'load' });
 await page.screenshot({ path: out, fullPage: true });
 await browser.close();

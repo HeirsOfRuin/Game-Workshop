@@ -1,71 +1,64 @@
-# The eight builds: what each is, and what to copy from it
+# The nine builds: what each is, and what to copy from it
 
-All repos are under `HeirsOfRuin/`. Copy proven code before writing new code; most
-infrastructure problems in a new game have already been solved in one of these.
+All repos are under `HeirsOfRuin/`. The skills hold the tools every game needs (first column of
+the copy map); the repos hold the game-specific originals. Copy before writing: most problems
+in a new game have already been solved once.
 
 | Game | Repo | Shape | Genre / loop | Status (Oct 2026) |
 |---|---|---|---|---|
 | Silk Road | `SilkRoad` | A: one HTML file | Merchant caravans, 1247, three starts | Shipped to itch; post-mortem `docs/building-games.md` |
-| Cradle | `Civ-City` | A | Single-city civ builder, Bronze Age to 1900 | Built; merged to `main` 2026-10-16 (PR #1) |
+| Cradle | `Civ-City` | A | Single-city civ builder, Bronze Age to 1900 | Merged to `main` 2026-10-16 (PR #1) |
 | Touchline | `Football` | B: ES modules, no build | Football manager, five-tier pyramid | 1,606 assertions; PWA |
 | Centennial Farm | `Farmyard-` | B + bundler | Manitoba farm 1875-2000, generational | Pages PWA; most rigorous balance tooling |
-| The Company | `Free-Company` | A | Free company, Italy 1361-75 | Shipped to itch; home of `docs/game-backlog.md` and this skill |
-| Knight of Adalia | `Knight-of-Adalia-` | C: Vite/Preact/TS/YAML | Narrative RPG, five chapters, a knight's life | itch (free), Android APK, demo build |
+| The Company | `Free-Company` | A | Free company, Italy 1361-75 | Shipped to itch |
+| Knight of Adalia | `Knight-of-Adalia-` | C: Vite/Preact/TS/YAML | Narrative RPG, a knight's life; sequel House of Adalia on the same engine | itch (free), Android APK; monorepo `games/knight`, `games/house`, `packages/engine` |
 | The Lists | `The-Lists` | B + bundler | Tourney knight career, fictional kingdom | itch; CI tests; richest smoke test |
-| Vikingr | `Vikingr` | C | Viking life RPG, sea map, three combat layers | In development (Roadmap 2) |
+| Vikingr | `Vikingr` | C | Viking life RPG, sea map, three combat layers | In development |
+| Imperator | `Imperator-of-Rome` | B | Roman civil wars AD 68-71, a legate's march on Rome | In development; measurement and itch kit made entirely with the skills (not yet published) |
+
+The backlog of games, shipped and candidate, is `Game-Workshop/docs/game-backlog.md`. One
+retrospective per game goes in `Game-Workshop/docs/retrospectives/`.
 
 ## Copy map: "I need X" → take it from
 
-| Need | Best source | Notes |
+| Need | In a skill | Game-specific original |
 |---|---|---|
-| Seeded RNG with named streams | `Farmyard-/src/engine/rng.js` (also `scripts/rng.js`) | LI reuses it unchanged |
-| Single-derivation module | `Farmyard-/src/engine/derive.js`, `The-Lists/src/engine/derive.js` | Every shown number from here |
-| Turn pipeline with one record out | `Farmyard-/src/engine/turn.js` | Five ordered phases |
-| Batch runner with progress refusal | `Farmyard-/sim/run.js` | `--trace=2 --seed=3` for one run year by year |
-| Claimed-differences verifier | `Farmyard-/sim/verify-tiers.js` | Noise floor printed; `--ablate` |
-| Composition / valuation | `Farmyard-/sim/composition.js`, `valuation.js` | Shares of gross; survivors only |
-| Dead-effects guard | `Farmyard-/test/effects.test.js` | Pair with `scripts/inert-check.js` |
-| Background/creation balance | `The-Lists/sim/verify-backgrounds.js` | Same seeds per answer, report > 2 SE |
-| Decision-value curves | `The-Lists/sim/joust-curve.js` | Policy x skill gap, SE stated |
-| Match-engine calibration vs reality | `Football/tools/calibrate.js`, `docs/MATCH_ENGINE.md` | Steppable engine for live view |
-| Settings ablation (exact) | `Football/tools/ablate.js`, `train-ablate.js` | Byte-identical = inert; small vs ignored distinguished |
-| Soak for rare crashes | `Football/tools/soak.js` | Every tier, many seeds |
-| Exploit attempt | `Football/tools/negotiate.js` | Tries to grind the model |
-| Packed large saves + IndexedDB | `Football/src/state/codec.js`, `store.js` | 3.6 MB world |
-| Service worker + update notice | `Football/sw.js` (also `scripts/sw.js`) | Perf-API precache, cache:'reload' |
-| PWA verification in a browser | `Football/tools/pwa-check.js` | Offline play, update offered |
-| Phone smoke test | `The-Lists/tools/smoke.mjs`, `Farmyard-/tools/smoke.mjs` (also `scripts/smoke.mjs`) | |
-| Single-file bundler + check | `Farmyard-/tools/bundle.js`, `check-bundle.mjs`; `The-Lists/tools/check-bundle.mjs` | Three builds: file, embed, Pages |
-| itch packaging + store art | `The-Lists/tools/itch.mjs`, `Free-Company/tools/make-itch-zip.sh`, `make-press.js`, `SilkRoad/tools/itch.js`, `store.js` | |
-| itch page copy and settings | `Free-Company/docs/itch-release.md`, `Knight-of-Adalia-/docs/itch/` | Measured embed size |
-| Guarded storage | `The-Lists/src/ui/prefs.js`, `Free-Company/index.html` `lsGet`/`STORAGE_OK` (also `scripts/storage.js`) | |
-| Save codes (compressed text) | `Vikingr/src/engine/savecode.ts`, `Knight-of-Adalia-/src/engine/savecode.ts` | |
-| YAML content + Zod schema + compiler | `Knight-of-Adalia-/src/content/schema.ts`, `tools/content-loader.ts`, `docs/CONTENT.md` | VK copies it |
-| Validator | `Knight-of-Adalia-/tools/validate-lib.ts` | 457 lines; dead ends, lethal rules, reachability |
-| Style lint driven by the style guide | `Knight-of-Adalia-/tools/lint-style.ts` + `content/style-guide.md` | Lists live in the guide |
-| Continuity checker | `Knight-of-Adalia-/tools/continuity.ts` | Phrase rules + dead names |
-| Choice audit | `Knight-of-Adalia-/tools/audit-choices.ts` | now/later/flavour/none |
-| "At stake" line from real effects | `Knight-of-Adalia-/src/engine/stakes.ts` | |
-| Chapter cards, turning points, dynasty export | `Knight-of-Adalia-/src/engine/cards.ts`, `turning.ts`, `dynasty.ts` | |
-| Scripted plans → transcripts | `Knight-of-Adalia-/tools/make-plan.ts`, `transcript.ts` | |
-| Demo build from a content subset | `Knight-of-Adalia-/tools/demo-bundle.ts` | |
-| Android APK workflow | `Knight-of-Adalia-/.github/workflows/android.yml`, `docs/ANDROID.md` | |
-| World map generated in code | `Knight-of-Adalia-/src/engine/worldgen.ts`, `src/ui/worldart.ts` | Borders grown by tile cost |
-| Real-geography map from Natural Earth | `Vikingr/tools/build-map.ts` | Grid committed with generator |
-| Photo/AI source → pixel scene | `Vikingr/tools/art.ts`, `docs/ART.md`; `SilkRoad/tools/scenes.js --pixel` | Master palette, no dither |
-| Animated scene renderer | `Vikingr/src/ui/scene/render.ts` | Palette cycling, particles |
-| Pixel sprite sheet tool | `SilkRoad/tools/icons.js` | Validator refuses malformed grids |
-| Procedural heraldry / crests | `Free-Company/index.html` `drawBanner`, `Football/src/gen/identity.js`, `The-Lists/src/engine/heraldry.js` | Tincture rule; hue spread |
-| Web Audio sound, no files | `The-Lists/src/ui/sound.js`, `tools/sound-preview.mjs` | |
-| Phased combat (shield-wall, duel) | `Vikingr/src/engine/wall.ts`, `bout.ts`, `docs/FRAME-COMBAT-2.md` | Revision 2 is the current answer |
-| Counter-triangle battles + sieges | `Free-Company/index.html` `resolveRound`, `tools/measure-battles.js` | |
-| Negotiation with memory | `Football/src/engine/negotiation.js` | |
-| Tutorial as predicates | `Farmyard-/src/ui/tutorial.js`, `The-Lists/src/ui/hints.js` | |
-| Economy reference doc | `Knight-of-Adalia-/docs/ECONOMY.md`, `Vikingr/docs/ECONOMY.md` | |
-| Frame docs (feature proposals) | `Vikingr/docs/FRAME-*.md`, `Knight-of-Adalia-/docs/FRAME-CH4-CH5.md` | |
-| Kill-gate prototype | `Free-Company/prototypes/the_company_sim.py`, `docs/the-company-spec.md` | |
-| Backlog and candidate scoring | `Free-Company/docs/game-backlog.md` | |
-| Retrospectives | `SilkRoad/docs/building-games.md`; this skill's `references/retrospectives/` | |
+| A new repo with saves, PWA, Pages, smoke, check | game-scaffold `init.mjs` | |
+| Seeded RNG with named streams | game-scaffold (every shape) | `Farmyard-/src/engine/rng.js` |
+| Single-derivation module, turn pipeline | game-scaffold shape B (`derive.js`, `turn.js`) | `Farmyard-/src/engine/derive.js`, `turn.js` |
+| Guarded storage, error boundary | game-scaffold `src/ui/storage.js` | `The-Lists/src/ui/prefs.js` |
+| Service worker (build id) and install prompt | game-scaffold `sw.js`, `sw-register.js`, `tools/stamp.mjs` | `Football/sw.js` |
+| Phone smoke test, bundle check | game-scaffold `tools/smoke.mjs`, `check-bundle.mjs` | `The-Lists/tools/smoke.mjs` |
+| Contact sheet of repeated visuals | game-scaffold `tools/contact-sheet.mjs` | |
+| Scripted edits that fail on a miss | game-scaffold `scripts/replace_once.py` | |
+| Batch runner, ablation, inert check, curves, claims, report | game-measure | `Farmyard-/sim/`, `The-Lists/sim/`, `Football/tools/ablate.js` |
+| Match-engine calibration vs reality | | `Football/tools/calibrate.js`, `docs/MATCH_ENGINE.md` |
+| Soak for rare crashes; exploit attempt | | `Football/tools/soak.js`, `negotiate.js` |
+| Composition / valuation | | `Farmyard-/sim/composition.js`, `valuation.js` |
+| itch zip, pre-public, embed size, press art, kit | game-release | `Free-Company/docs/itch-release.md` (worked example) |
+| PWA verification in a browser | game-release `update-check.mjs` | `Football/tools/pwa-check.js` |
+| Android APK | game-release `templates/android/` | KA `.github/workflows/android.yml` (branch `ccr-99573b29-7dxwxb`) |
+| Story engine: scenes, checks, conditions, effects, text, saves, save codes | game-narrative `core/` | `Knight-of-Adalia-/packages/engine` |
+| Validator, bot, transcripts for an engine game | game-narrative `templates/game/tools/` | `Knight-of-Adalia-/games/knight/tools/` |
+| Style lint, render scan, continuity, choice audit | game-narrative `tools/` (any engine, via an adapter) | |
+| "At stake" line, chapter cards | game-narrative `core/engine` (`stakes.ts`, `cards.ts`) | |
+| Dynasty export to a sequel | | `Knight-of-Adalia-/games/knight/src/game/dynasty.ts`, `packages/dynasty/` |
+| Packed large saves + IndexedDB | | `Football/src/state/codec.js`, `store.js` (3.6 MB world) |
+| World map generated in code | | `Knight-of-Adalia-/packages/engine/src/worldgen.ts`, `games/knight/src/ui/worldart.ts` |
+| Real-geography map from Natural Earth | | `Vikingr/tools/build-map.ts`; `Imperator-of-Rome/tools/` (map builder) |
+| Photo/AI source → pixel scene | | `Vikingr/tools/art.ts`, `docs/ART.md`; `SilkRoad/tools/scenes.js --pixel` |
+| Animated scene renderer | | `Vikingr/src/ui/scene/render.ts` |
+| Pixel sprite sheet tool | | `SilkRoad/tools/icons.js` |
+| Procedural heraldry / crests | | `Free-Company/index.html` `drawBanner`, `Football/src/gen/identity.js`, `The-Lists/src/engine/heraldry.js` |
+| Web Audio sound, no files | | `The-Lists/src/ui/sound.js`, `tools/sound-preview.mjs` |
+| Phased combat (shield-wall, duel) | | `Vikingr/src/engine/wall.ts`, `bout.ts`, `docs/FRAME-COMBAT-2.md` |
+| Counter-triangle battles and sieges | | `Free-Company/index.html` `resolveRound` |
+| Negotiation with memory | | `Football/src/engine/negotiation.js` |
+| Tutorial as predicates | | `Farmyard-/src/ui/tutorial.js`, `The-Lists/src/ui/hints.js` |
+| Economy reference doc | game-narrative `templates/docs/ECONOMY.md` | `Knight-of-Adalia-/games/knight/docs/ECONOMY.md`, `Vikingr/docs/ECONOMY.md` |
+| Frame docs | game-scaffold `docs/FRAME-template.md`; game-narrative `FRAME-chapter.md` | `Vikingr/docs/FRAME-*.md` |
+| Kill-gate prototype | | `Free-Company/prototypes/the_company_sim.py`; `Imperator-of-Rome/prototypes/killgate/` |
+| Retrospectives | `Game-Workshop/docs/retrospectives/` | `SilkRoad/docs/building-games.md`; this skill's `references/retrospectives/` |
 
 ## One-line lessons per game
 
@@ -77,12 +70,18 @@ infrastructure problems in a new game have already been solved in one of these.
   the average is the wrong statistic; deterministic checksums prove refactors neutral.
 - **Centennial Farm:** dead effects at scale (35); compounding without owners; the
   instrument can be the problem (machinery inversion); disclose balance impact
-  instead of tuning it away; teach by doing.
+  instead of tuning it away; teach by doing. Its bundler shipped an escaped cache
+  placeholder for a month (fixed; the build now asserts the id landed).
 - **The Company:** the kill gate catches broken loops before code; one resolver for
   every fight; release on itch needs storage guards and a measured embed.
 - **Knight of Adalia:** frame → calibrate → build → playtest; continuity is a tool,
-  not a read-through; choices need visible stakes; money needs sinks.
+  not a read-through; choices need visible stakes; money needs sinks; an engine
+  shared by two games through a game module.
 - **The Lists:** the joust (the spine) built and measured first; information must
   change decisions; the AI field must obey the player's rules; a lighter first hour.
 - **Vikingr:** combat legibility took three tries; slow the rise; brakes plus a
   floor; death spirals; dead men stay dead engine-side.
+- **Imperator:** four hand-written measurement tools replaced by one adapter and four
+  configs with the same numbers; a subsystem (the Senate) worth 15.7 points on one
+  road, and an option (bypass) worth nothing measurable; its whole itch kit (zip,
+  embed size, press art, page copy, checks) came out of game-release with no hand code.

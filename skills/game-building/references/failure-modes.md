@@ -1,6 +1,6 @@
 # Failure modes: the full catalogue
 
-Every entry here shipped, or nearly shipped, in one of the eight builds. Each has
+Every entry here shipped, or nearly shipped, in one of the builds. Each has
 the evidence, a detector (the cheapest thing that finds it), and the fix that
 worked. IDs are stable so commits and docs can cite them ("F12").
 
@@ -26,7 +26,7 @@ Display and resolution computed separately, then drift.
   fine; a second derivation is not.
 
 ### F2. Declared, offered or shown, and never read (decoration)
-The most repeated defect across all eight games.
+The most repeated defect across all the games.
 - CF: 21 of 26 tech effects read by nothing; 35 dead effects in all; a war's
   `labourShortage` aggregated yearly and used nowhere. TL: three tactics in the UI
   never read; `autoPickOnMatchday` written at creation, read in zero places;
@@ -35,7 +35,7 @@ The most repeated defect across all eight games.
   places, read in none. KA: hollow choices; 120 flags set and never read. CO:
   "refuse" order had no terrain multiplier (NaN — looked like a perfect stalemate).
 - **Detector:** behavioural, not textual. With a deterministic engine a knob the
-  engine ignores gives a byte-identical end state (`scripts/inert-check.js`). For
+  engine ignores gives a byte-identical end state (game-measure: `ablate.js --inert`). For
   content: a choice audit classing every choice now / later / flavour / none
   (KA `tools/audit-choices.ts`). A crude "key name appears in engine" test gives
   false passes (CF's guard passed `labourShortage` because the collector named it).
@@ -86,7 +86,8 @@ Buttons queue an intent; the engine later decides; nothing reports the outcome.
   render tokens.
 - **Detector:** render every screen across a full bot career and scan for
   `{token}`, `undefined`, `NaN`, `[object Object]` (scan text, not innerHTML —
-  CO's first scan flagged its own `<script>`). `scripts/smoke.mjs` does this.
+  CO's first scan flagged its own `<script>`). The scaffold's `tools/smoke.mjs` does this;
+  for narrative games, game-narrative's `render-scan.ts` does it across every path.
 - **Fix:** resolve tokens once per event from one context; effects act on the
   named object, not a re-pick.
 
@@ -124,7 +125,7 @@ Buttons queue an intent; the engine later decides; nothing reports the outcome.
   rounds. CF: first batch broke 160 acres and took zero harvests. CF: two crisis
   tests measured a farm already foreclosed, and a farm that no shock could touch.
 - **Fix:** every harness asserts progress (turns reached, events seen) and refuses
-  to report otherwise (`scripts/harness.js`). Print quantities, not verdicts.
+  to report otherwise (game-measure: `run.js` with `progress()` in the adapter). Print quantities, not verdicts.
 
 ### F12. The harness mislabels what it ran
 - CO: an unavailable policy silently fell back to `avail[0]` and was reported
@@ -146,7 +147,7 @@ Buttons queue an intent; the engine later decides; nothing reports the outcome.
 ### F14. Sample too small, gap read as result
 - CO: 70 runs read 21.4% then 11.4% on the same build; two ordering conclusions
   were wrong. CF: a 60-run ablation read a helpful subsystem as harmful.
-- **Fix:** print the noise floor beside every comparison (`scripts/stats.js`).
+- **Fix:** print the noise floor beside every comparison (game-measure: `stats.js`).
   ~200 runs for a 10% rate to resolve ~6 points; ~1,800 to resolve 2.
 
 ### F15. The wrong statistic
@@ -242,7 +243,7 @@ Buttons queue an intent; the engine later decides; nothing reports the outcome.
 ### F27. Determinism leaks
 - CF: module-level id counters gave one seed different ids in a batch. TL: adding
   a call that consumed randomness in worldgen silently re-rolled the world.
-- **Fix:** named streams (`scripts/rng.js`); counters in state; derived (not
+- **Fix:** named streams (the scaffold's `src/engine/rng.js`); counters in state; derived (not
   rolled) AI decisions consume no randomness; prove a refactor neutral by
   checksumming a seeded world before and after (TL did this repeatedly).
 
@@ -258,13 +259,17 @@ Buttons queue an intent; the engine later decides; nothing reports the outcome.
 - CO: one unguarded `getItem` = black screen in itch's frame. LI: storage evaluated
   as a default parameter threw before any try. SR: Safari refuses localStorage on
   `file://`.
-- **Fix:** `scripts/storage.js`; title screen says when nothing will be kept.
+- **Fix:** the scaffold's `src/ui/storage.js` (the lookup itself is guarded); the title
+  screen says when nothing will be kept. game-release's `pre-public.mjs` plays the zip
+  in a frame with storage blocked.
 
 ### F30. Stale builds on returning players
 - TL: background refresh passed the page's request (304, `res.ok` false) and never
   updated. SR/CO: forgot to bump the cache name.
-- **Fix:** `scripts/sw.js` (cache:'reload', byte compare, offer reload); bump the
-  cache name every release or stamp it with the build hash.
+- **Fix:** the build id names the cache: the build writes it over `__BUILD_ID__`
+  and fails if it did not land (the scaffold's `sw.js`, `tools/stamp.mjs`). Never a
+  hand bump. game-release's `update-check.mjs` proves a new deploy reaches someone
+  who already has the app.
 
 ### F31. "Installable" that is not
 - CF: home-screen meta tags on a `file://` build — a browser only installs a page
@@ -279,7 +284,7 @@ Buttons queue an intent; the engine later decides; nothing reports the outcome.
 - CF: `String.replace` with a string replacement ate the file at `$'`; `import
   {a as b}` emitted as invalid destructuring; a bundle that "built" did not parse.
   CR: a scripted edit matched nothing and reported success.
-- **Fix:** replacement functions; assert match counts (`scripts/replace_once.py`);
+- **Fix:** replacement functions; assert match counts (game-scaffold: `scripts/replace_once.py`);
   open the built artifact in a browser (CF `check-bundle.mjs`) every build.
 
 ### F33. Host and CI configuration, not code
@@ -308,7 +313,7 @@ Buttons queue an intent; the engine later decides; nothing reports the outcome.
 ### F36. Repeated visuals and true-size problems
 - SR icons; CO banners; TL crests at 18px; CF crop colours within 15 degrees of
   hue; roads drawn in browns that vanished; SR caption burying a bridge at 390px.
-- **Fix:** contact sheet at real sizes (`scripts/contact-sheet.mjs`); hues spread
+- **Fix:** contact sheet at real sizes (the scaffold's `tools/contact-sheet.mjs`); hues spread
   per group, not drawn independently; view at 390px.
 
 ### F37. Layout at phone width
@@ -322,5 +327,5 @@ Buttons queue an intent; the engine later decides; nothing reports the outcome.
 - Ideas discussed in chat and never written into a repo are gone next session
   (game-backlog.md). KA committed two scratch scripts by mistake. Cradle's build sat
   on an unmerged branch for five weeks while `main` of Civ-City was a one-line README.
-- **Fix:** write ideas to `docs/game-backlog.md` immediately; `.gitignore` scratch
+- **Fix:** write ideas to `Game-Workshop/docs/game-backlog.md` immediately; `.gitignore` scratch
   patterns (`*.tmp.ts`); record in the backlog which branch holds a build.
