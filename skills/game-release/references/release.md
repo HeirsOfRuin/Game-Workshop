@@ -35,8 +35,10 @@ time they ship (a workflow path change).
   other branches; Silk Road lost eight deploys to this.
 - One deploy method. The Company ran a branch deploy and an Actions deploy side by
   side, and the redundant one failed every push.
-- `actions/configure-pages` with `enablement: true` turns Pages on for a repo that
-  never had it (The Company, Centennial Farm).
+- Switch Pages on once by hand: Settings > Pages > Source: GitHub Actions. The
+  workflow's own token may not create the site; `configure-pages` with
+  `enablement: true` then fails with "Resource not accessible by integration"
+  (Imperator's first deploy). After that one switch, every push deploys.
 - The workflow runs the tests, builds, stamps, and **refuses to upload** a site
   missing its manifest, worker or icons (Centennial Farm): a 404 manifest makes the
   browser decline install with no message. The scaffold's `pages.yml` does all of

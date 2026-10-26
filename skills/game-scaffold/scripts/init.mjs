@@ -382,5 +382,6 @@ console.log(`
 Next:
   cd ${where.startsWith('../..') ? dir : where || '.'}
 ${shape === 'C' ? '  npm install\n' : ''}  npm run check                      # must pass before the first commit
-${fill ? '  git diff                           # review what was added and fixed\n' : '  git init && git add -A && git commit -m "Scaffold ' + name + '"\n  docs/SPEC.md                       # stage 1: the one-page spec\n'}  Pages: the workflow deploys from the default branch. If Pages was ever set to
-  "Deploy from a branch", switch Settings > Pages > Source to "GitHub Actions" once.`);
+${fill ? '  git diff                           # review what was added and fixed\n' : '  git init && git add -A && git commit -m "Scaffold ' + name + '"\n  docs/SPEC.md                       # stage 1: the one-page spec\n'}  Pages: once, in the repo on GitHub: Settings > Pages > Source: "GitHub Actions"
+  (the workflow cannot switch Pages on by itself). Then every push to the default
+  branch deploys.`);

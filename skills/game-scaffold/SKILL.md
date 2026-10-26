@@ -68,7 +68,9 @@ exactly the gaps the review listed and the game's own tests and smoke passed.
   frame (itch) or from `file://`.
 - **Pages:** one workflow; tests, build, completeness check (manifest, worker,
   icons, no unstamped placeholder); deploys only from the default branch, read
-  at run time. Turns Pages on by itself on a repo that never had it.
+  at run time. Pages itself must be switched on once by hand (Settings > Pages >
+  Source: GitHub Actions): the workflow's token may not create the site, and
+  Imperator's first deploy failed on exactly that.
 - **Icons:** one committed SVG; 180, 192, 512 and a maskable 512 rendered from
   it at 80% on the theme colour.
 - **Saves:** versioned key that never changes, `v` in the payload, a migration
