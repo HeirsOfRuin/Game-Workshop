@@ -6,7 +6,7 @@ State of the game projects, and a filtered list of candidates for the next build
 
 ## 1. What exists
 
-Updated 2026-10-26. Nine game repos, all under `HeirsOfRuin/`.
+Updated 2026-10-28. Ten game repos, all under `HeirsOfRuin/`.
 
 | Project | Repo | Shape | Status |
 |---|---|---|---|
@@ -19,6 +19,7 @@ Updated 2026-10-26. Nine game repos, all under `HeirsOfRuin/`.
 | **The Lists** — tourney knight's career, kingdom of Lothmere | `The-Lists` | ES modules + bundler | Built through Phase 9b, PWA, itch kit. Last work 2026-10-10. |
 | **Vikingr** — Viking life RPG, 830 onward, sea map, three combat layers | `Vikingr` | Vite + Preact + TS + YAML | In development: years 830–835 written, Roadmap 2 underway, combat revision 2 awaiting the author's verdict. Last work 2026-10-15. |
 | **Imperator** — legate turned claimant, Roman civil wars AD 68–71; hold Rome to win | `Imperator-of-Rome` | ES modules (shape B), no build yet | Phase 2 plus first playtest and the Depth pass (Senate, frontier peoples, trade, rival diplomacy). Built with the game-building skill. Default branch `ccr-8f8fa91f-0iglvu`, now with the kits' measurement, the Pages workflow and the itch kit (2026-10-26); the first Pages deploy runs on that push. Last work 2026-10-26. |
+| **The Lady of Saint-Pol** — a noblewoman at the court of Charles VI, 1400–1422; indirect power, faction swings, Agincourt, widowhood | `Noble-Ladies` | ES modules (shape B) | First playable 2026-10-28 on branch `ccr-a800e13a-5gntgt`: all four acts at bare-bones scope, kill gate run on the engine (11 policies x 400 runs, `docs/KILLGATE.md`), phone UI. She is 17 in Act 1 and marries at 18 (author's decision). Next: the author's calibration playtest; four open findings (home is the safest median; news worth ~2 points). Pages must be switched on by hand once. |
 | **Age of Chivalry** — TTRPG, AI GM roadmap, canon audit vs. draft9 | none in this workspace | — | Design/canon work on the local bridge environment. No game app repo. |
 
 All nine game apps share the same constraints: no server, no API key, turn-based,
