@@ -134,6 +134,22 @@ employee development.
 - **New sequencing:** The Workshop detour is dropped. The kill gate is a paper
   and spreadsheet prototype run with real supervisors, before any code.
 
+**Scope widened 2026-11-02 — the Northbound practice system.** Shift becomes the
+practice layer of Northbound Leadership & Operations (the author's consulting
+firm; material in Google Drive). Its content is built on the existing Northbound
+frameworks rather than invented: the Five Principles (5 pillars, 15 branches),
+the four tiers, the three directions, the modular EI assessment and the
+eight-module Mentorship Handbook. Each handbook module becomes one playable
+scenario. People are assigned modules by tier and assessed gap, individually
+(self-paced, phone) or as a group (facilitated). The service ladder already sells
+a "Systems Thinking Simulation" workshop with no content behind it; this fills
+that gap.
+- **Open decision:** where assignments and results are stored. Tracking named
+  employees needs storage, and EI results are sensitive. Start with no server:
+  results export to the coach, not to a shared database.
+- **Open risk:** who owns it if it is built or piloted at the day job. Settle
+  that before the pilot.
+
 ### 3. The Manor Year
 An English manor, 1340s. Demesne, labour dues, the court roll, the weather, and
 eventually the plague.
