@@ -150,6 +150,14 @@ that gap.
 - **Open risk:** who owns it if it is built or piloted at the day job. Settle
   that before the pilot.
 
+**Sequencing set 2026-11-02 — day-job pilot first, Northbound remake second.**
+The first version is built on the day job's Leadership Behaviour Assessment (LBA
+v2: 4 domains, 13 subdomains, 5 tiers) and piloted there. What it teaches is
+logged, then the Northbound system is rebuilt from scratch on the Northbound
+frameworks. The day-job LBA is that company's controlled document: its items
+and content never go into this public repo, and are not copied into the
+Northbound version. The pilot needs a private repo.
+
 ### 3. The Manor Year
 An English manor, 1340s. Demesne, labour dues, the court roll, the weather, and
 eventually the plague.
