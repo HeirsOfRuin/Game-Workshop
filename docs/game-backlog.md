@@ -116,6 +116,24 @@ capacity, absenteeism, a difficult employee, a rush order, a near-miss.
   queue, capacity, quality, people, lag — with the setting swapped. Proving the
   loop is fun in armour is cheaper than proving it in PowerPoint.
 
+**Direction set 2026-11-02 — a training tool, not a video game.** Shift is
+now a facilitated leadership simulation for a classroom: teams of 3–5 run one
+fabrication cell for 8–12 simulated weeks on a single shared screen, and a
+facilitator runs the debrief. It trains leadership, systems thinking, lean
+tools, meeting facilitation, time management, prioritisation, multi-tasking and
+employee development.
+- **Every skill is a mechanic with a cost, never a quiz question.** The
+  supervisor's 40 hours a week are the scarce resource; lean tools cost hours
+  now and pay weeks later; coaching that is skipped surfaces as a quit later.
+- **Facilitation cannot be simulated, so it is done live:** each round opens
+  with a real huddle run by one player, scored by an observer on a rubric card.
+- **The debrief report is the product.** The tool traces each outcome back to
+  the decision that caused it; the learning happens in that conversation.
+- **Still single-device, offline, no server** — the filter holds, because the
+  class shares one screen.
+- **New sequencing:** The Workshop detour is dropped. The kill gate is a paper
+  and spreadsheet prototype run with real supervisors, before any code.
+
 ### 3. The Manor Year
 An English manor, 1340s. Demesne, labour dues, the court roll, the weather, and
 eventually the plague.
