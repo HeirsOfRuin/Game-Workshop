@@ -6,7 +6,7 @@ State of the game projects, and a filtered list of candidates for the next build
 
 ## 1. What exists
 
-Updated 2026-10-26. Nine game repos, all under `HeirsOfRuin/`.
+Updated 2026-11-03. Ten game repos, all under `HeirsOfRuin/`.
 
 | Project | Repo | Shape | Status |
 |---|---|---|---|
@@ -19,6 +19,7 @@ Updated 2026-10-26. Nine game repos, all under `HeirsOfRuin/`.
 | **The Lists** — tourney knight's career, kingdom of Lothmere | `The-Lists` | ES modules + bundler | Built through Phase 9b, PWA, itch kit. Last work 2026-10-10. |
 | **Vikingr** — Viking life RPG, 830 onward, sea map, three combat layers | `Vikingr` | Vite + Preact + TS + YAML | In development: years 830–835 written, Roadmap 2 underway, combat revision 2 awaiting the author's verdict. Last work 2026-10-15. |
 | **Imperator** — legate turned claimant, Roman civil wars AD 68–71; hold Rome to win | `Imperator-of-Rome` | ES modules (shape B), no build yet | Phase 2 plus first playtest and the Depth pass (Senate, frontier peoples, trade, rival diplomacy). Built with the game-building skill. Default branch `ccr-8f8fa91f-0iglvu`, now with the kits' measurement, the Pages workflow and the itch kit (2026-10-26); the first Pages deploy runs on that push. Last work 2026-10-26. |
+| **Shift** — leadership simulator: one fictional car plant, a week per turn, hidden causes, delayed consequences; Supervisor track first | `Shift` (private) | Shape C planned | Plan and Supervisor spec written 2026-11-03 (`docs/PLAN.md`, `docs/SPEC.md` there). Kill gate next. A training tool, not a video game. |
 | **Age of Chivalry** — TTRPG, AI GM roadmap, canon audit vs. draft9 | none in this workspace | — | Design/canon work on the local bridge environment. No game app repo. |
 
 All nine game apps share the same constraints: no server, no API key, turn-based,
@@ -157,9 +158,10 @@ logged, then the Northbound system is rebuilt from scratch on the Northbound
 frameworks. The LBA is the author's own work and is not official at the day job
 yet (corrected 2026-11-03; an earlier note called it a company document). Its
 item bank still stays out of this public repo, and the pilot needs a private
-repo. The design plan is `docs/shift-plan.md`: the shared plant, the week
-engine, six tracks (lead, supervisor, manager, CI/Lean, facilitator, leadership
-group), art budget, measurement and the build order.
+repo. The design plan moved to `HeirsOfRuin/Shift` (`docs/PLAN.md`, with the
+author's decisions: a car plant that builds the whole vehicle, seven
+departments, Supervisor track first for individual sessions) and the one-page
+Supervisor spec is `docs/SPEC.md` there.
 
 ### 3. The Manor Year
 An English manor, 1340s. Demesne, labour dues, the court roll, the weather, and
