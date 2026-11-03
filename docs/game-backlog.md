@@ -19,7 +19,7 @@ Updated 2026-11-03. Ten game repos, all under `HeirsOfRuin/`.
 | **The Lists** — tourney knight's career, kingdom of Lothmere | `The-Lists` | ES modules + bundler | Built through Phase 9b, PWA, itch kit. Last work 2026-10-10. |
 | **Vikingr** — Viking life RPG, 830 onward, sea map, three combat layers | `Vikingr` | Vite + Preact + TS + YAML | In development: years 830–835 written, Roadmap 2 underway, combat revision 2 awaiting the author's verdict. Last work 2026-10-15. |
 | **Imperator** — legate turned claimant, Roman civil wars AD 68–71; hold Rome to win | `Imperator-of-Rome` | ES modules (shape B), no build yet | Phase 2 plus first playtest and the Depth pass (Senate, frontier peoples, trade, rival diplomacy). Built with the game-building skill. Default branch `ccr-8f8fa91f-0iglvu`, now with the kits' measurement, the Pages workflow and the itch kit (2026-10-26); the first Pages deploy runs on that push. Last work 2026-10-26. |
-| **Shift** — leadership simulator: one fictional car plant, a week per turn, hidden causes, delayed consequences; Supervisor track first | `Shift` (private) | Shape C planned | Plan and Supervisor spec written 2026-11-03 (`docs/PLAN.md`, `docs/SPEC.md` there). Kill gate next. A training tool, not a video game. |
+| **Shift** — leadership simulator at Northern Motors: one car plant, a week per turn, hidden causes, delayed consequences; Supervisor track first | `Shift` (private) | Shape B (one file) | Beta 1 of the Supervisor track built 2026-11-03: kill gate passed (7 runs), all eight modules pass the same five conditions with the engine's bots, `npm run check` clean, published as a private page for the author (`docs/BETA.md` there). Waiting on the author's verdict. A training tool, not a video game. |
 | **Age of Chivalry** — TTRPG, AI GM roadmap, canon audit vs. draft9 | none in this workspace | — | Design/canon work on the local bridge environment. No game app repo. |
 
 All nine game apps share the same constraints: no server, no API key, turn-based,
@@ -80,7 +80,9 @@ next pick.
 - **The Manor Year** — now overlaps Centennial Farm (generational land and
   succession) and Knight of Adalia (manor estate); its Distance drops.
 - **The Siege** — sieges exist in The Company and Knight of Adalia; Distance drops.
-- **The Workshop, Shift, The Assize, GM Table** — not started. The Workshop is
+- **Shift** — built to a beta (see the table above); The Workshop detour was
+  dropped (section 4, candidate 2).
+- **The Workshop, The Assize, GM Table** — not started. The Workshop is
   still the only candidate whose scarce resource (capacity and skill, not money)
   none of the eight games uses.
 

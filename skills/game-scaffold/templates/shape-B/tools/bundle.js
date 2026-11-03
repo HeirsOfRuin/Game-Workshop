@@ -70,6 +70,16 @@ async function load(rel) {
   const leftover = code.match(/^import\s.+$/m);
   if (leftover) throw new Error(`${rel}: unsupported import form -> ${leftover[0]}`);
   const exports = collectExports(code, rel);
+  // Re-exports were rewritten to consts above, so the scan no longer sees them:
+  // add their names, or a facade module (export { a } from './x.js') bundles
+  // to an empty object and every import from it is undefined. Shift's single
+  // file failed this way while its source build passed (2026-11-03).
+  for (const named of reexports) {
+    for (const part of named.slice(1, -1).split(',')) {
+      const name = part.trim().split(/\s+as\s+/).pop().trim();
+      if (name && !exports.includes(name)) exports.push(name);
+    }
+  }
   code = code.replace(/^export\s+(?=(?:async\s+)?function|class|const|let|var)/gm, '');
   code = code.replace(/^export\s*\{[^}]*\}\s*;?/gm, '');
   for (const d of deps) await load(d);
