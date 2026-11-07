@@ -36,6 +36,13 @@ across. Anything raised in chat and not scaffolded into a repo left no trace.
 Append a two-line entry when one comes up — name, core loop. That is the whole
 process.
 
+### Entries
+
+- **WW1 (working title)** (2026-11-07, repo `WW1`, draft spec in `docs/SPEC.md`). An
+  18-year-old volunteer, British or German, 1914 to the Armistice: rotations and set-piece
+  battles where the lever is how much risk you take and for whom; nerve is the scarce
+  resource; win by surviving, graded by rank, awards and friends alive.
+
 ## 3. The design filter
 
 Anything on the candidate list has to clear the constraints the existing builds
