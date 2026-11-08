@@ -42,6 +42,8 @@ process.
   18-year-old volunteer, British or German, 1914 to the Armistice: rotations and set-piece
   battles where the lever is how much risk you take and for whom; nerve is the scarce
   resource; win by surviving, graded by rank, awards and friends alive.
+  Spec approved 2026-11-08 (British first, four towns, four stages with home leave); kill
+  gate passed the same day with nine open issues (`WW1/docs/KILLGATE.md`). Next: DESIGN.md.
 
 ## 3. The design filter
 
