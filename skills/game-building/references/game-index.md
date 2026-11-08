@@ -15,6 +15,7 @@ in a new game have already been solved once.
 | The Lists | `The-Lists` | B + bundler | Tourney knight career, fictional kingdom | itch; CI tests; richest smoke test |
 | Vikingr | `Vikingr` | C | Viking life RPG, sea map, three combat layers | In development |
 | Imperator | `Imperator-of-Rome` | B | Roman civil wars AD 68-71, a legate's march on Rome | In development; measurement and itch kit made entirely with the skills (not yet published) |
+| In the Trenches | `WW1` | C (game-narrative engine + own war layer) | A 1914 volunteer's war, 1915 to the Armistice | Phase 1 (2026-11-09): the kill-gate model ported draw for draw; the game reproduces its kill gate exactly |
 
 The backlog of games, shipped and candidate, is `Game-Workshop/docs/game-backlog.md`. One
 retrospective per game goes in `Game-Workshop/docs/retrospectives/`.
@@ -57,7 +58,8 @@ retrospective per game goes in `Game-Workshop/docs/retrospectives/`.
 | Tutorial as predicates | | `Farmyard-/src/ui/tutorial.js`, `The-Lists/src/ui/hints.js` |
 | Economy reference doc | game-narrative `templates/docs/ECONOMY.md` | `Knight-of-Adalia-/games/knight/docs/ECONOMY.md`, `Vikingr/docs/ECONOMY.md` |
 | Frame docs | game-scaffold `docs/FRAME-template.md`; game-narrative `FRAME-chapter.md` | `Vikingr/docs/FRAME-*.md` |
-| Kill-gate prototype | | `Free-Company/prototypes/the_company_sim.py`; `Imperator-of-Rome/prototypes/killgate/` |
+| Kill-gate prototype | | `Free-Company/prototypes/the_company_sim.py`; `Imperator-of-Rome/prototypes/killgate/`; `WW1/prototypes/killgate/` (on the game-measure kit) |
+| A systems layer under the story engine, stopping at each decision | | `WW1/src/game/war/war.ts` (step machine), `src/game/module.ts` (routing on `war.pending`) |
 | Retrospectives | `Game-Workshop/docs/retrospectives/` | `SilkRoad/docs/building-games.md`; this skill's `references/retrospectives/` |
 
 ## One-line lessons per game

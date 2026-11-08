@@ -35,6 +35,13 @@ Once the real game exists, **retire the prototype**. CO marked the Python sim as
 the Stage 1 record and moved measurement into the shipped functions ("the harness
 cannot drift from the game because it is the game"). Two models drift.
 
+**Port it draw for draw, and test equality, not closeness.** In the Trenches wrote its kill
+gate in JS with named RNG streams, then ported it into the game as a step machine that stops
+at each decision, keeping the same streams and draw order. The game's gate tables then equal
+the prototype's character for character on the same seeds, and a test holds 160 wars equal.
+"Within 2 SE" would have hidden a changed rule; equality shows the first one. Retire the
+prototype and the equality test together at the first deliberate rule change.
+
 ### Stage 4: instruments ship with the engine
 VK DESIGN §18: "Built alongside the engine from the first commit, not later."
 Each harness gets its progress assertion the day it exists (F11). The cheapest

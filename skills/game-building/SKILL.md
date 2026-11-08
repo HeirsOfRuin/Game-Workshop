@@ -183,5 +183,5 @@ Pick the shape (game-scaffold `references/architecture.md`):
 | `references/workflow.md` | Stages, gates, playtest handling, session efficiency, doc templates, commit style |
 | `references/failure-modes.md` | F1-F38 with evidence, detector and fix |
 | `references/design-lessons.md` | Decisions, combat, pacing, the world, teaching, history, the author's preferences |
-| `references/game-index.md` | The nine games, the copy map by need (skill first), one-line lessons each |
+| `references/game-index.md` | The games, the copy map by need (skill first), one-line lessons each |
 | `references/retrospectives/` | The original Silk Road and Cradle write-ups |
