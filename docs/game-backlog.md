@@ -44,7 +44,8 @@ process.
   resource; win by surviving, graded by rank, awards and friends alive.
   Spec approved 2026-11-08 (British first, four towns, four stages with home leave); kill
   gate passed the same day; round 2 with the author's answers 2026-11-09 (`WW1/docs/KILLGATE.md`).
-  `WW1/docs/DESIGN.md` drafted for approval.
+  Titled *In the Trenches*; DESIGN approved 2026-11-09; Phase 1 (engine and instruments) built the
+  same day: the game reproduces its kill gate exactly. Next: calibration (DESIGN §13).
 
 ## 3. The design filter
 
