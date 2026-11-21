@@ -329,3 +329,21 @@ Buttons queue an intent; the engine later decides; nothing reports the outcome.
   on an unmerged branch for five weeks while `main` of Civ-City was a one-line README.
 - **Fix:** write ideas to `Game-Workshop/docs/game-backlog.md` immediately; `.gitignore` scratch
   patterns (`*.tmp.ts`); record in the backlog which branch holds a build.
+
+### F39. Nobody asked for a rating
+- Seven ratings across about 4,200 views on seven itch pages (2026-11-20), and no game
+  asked for one. itch ranks on ratings; the one nudge that existed (itch's own "things
+  to rate" page) sent Dead or Alive five visits on its own. Players rate when asked.
+- **Fix:** the rating ask at the first natural stopping point and at the end, once each,
+  one line and a link to the game's page (game-release `templates/rate-prompt.js`),
+  marked `data-rate="first-stop"` / `data-rate="end"`; `check-store.mjs` fails without
+  both. Vikingr first (2026-11-21): the first winter's hall and the saga's first death.
+
+### F40. The store address built into the game
+- The itch account was renamed from edmodo1 to Heirs of Ruin (2026-11-21). itch
+  redirects the old address, but House of Adalia's Menu links, Knight of Adalia's
+  "Export your house" panel and Vikingr's "Get the full game" button had the old one
+  written into their builds, which players keep for years.
+- **Fix:** one constant per game for its itch address, `https://heirs-of-ruin.itch.io/<slug>`;
+  `check-store.mjs` fails on the old account's address in any tracked file (history
+  folders exempt) and on an itch link under another account.

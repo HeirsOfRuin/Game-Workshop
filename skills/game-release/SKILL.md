@@ -39,6 +39,7 @@ replaces only the kit's own tools. A repo from `game-scaffold` already has
 | 6 | fill `docs/itch/description.html` and `ITCH.md` **from the build** | every `<...>` field gone |
 | 7 | `node tools/build-itch.mjs --site=dist/site --slug=<slug> --name="<Name>" [--single=dist/<slug>.html]` | the zip verified: index.html at the root, no `sw.js` |
 | 8 | `node tools/pre-public.mjs --zip=release/<slug>-web.zip --site=dist/site` | clean; the numbers it lists confirmed |
+| 8b | `node tools/check-store.mjs --slug=<slug>` | clean: links on heirs-of-ruin.itch.io, both rating asks, short description, verb row |
 | 9 | `node tools/make-itch-kit.mjs --slug=<slug> --name="<Name>"` | `release/<slug>-itch-kit.zip`, nothing missing |
 | 10 | upload per `START-HERE.txt` as a draft, play it on a phone, then Public | |
 
@@ -56,10 +57,12 @@ build, stamp, completeness check, then upload).
 | `build-itch.mjs` | web zip (sw.js out), single file and offline zip; reads the zip back | a game in a subfolder; a stale worker on itch's origin |
 | `pre-public.mjs` | plays the zip in a cross-origin frame, storage blocked and allowed; checks the copy | the black rectangle; unfilled fields; wrong numbers; unnamed font requests |
 | `make-itch-kit.mjs` | one folder and zip with START-HERE.txt in upload order | a missing cover or the embed size forgotten |
+| `check-store.mjs` | links on heirs-of-ruin.itch.io; both rating asks in the code; the short description; the cover's verb row | the old account's address built into three games; no game asking for a rating |
 | `browser.mjs`, `zip.mjs` | Playwright and a static server; a dependency-free zip writer | |
 
 ## Templates
 
+`rate-prompt.js` (the rating ask, with its marker; copy into the game's UI),
 `ITCH.md` (settings, AI disclosure, known constraints, before-public checklist),
 `description.html` (page copy skeleton), `cover.html` (dark ground from the theme
 colour), `devlog.md`, `press.config.mjs`, `android/` (Capacitor config, workflow,
@@ -72,5 +75,13 @@ colour), `devlog.md`, `press.config.mjs`, `android/` (Capacitor config, workflow
 - Numbers in the copy come from the code or a measured run, never from memory.
 - A tool that warns is asking a person to look: the press sheet, the numbers list.
 - Fix a tool here and run `setup.mjs --upgrade` in each game, never edit a game's copy of it.
+- **The account is `https://heirs-of-ruin.itch.io`** (renamed from edmodo1, 2026-11-21). Every itch link a
+  game carries is `https://heirs-of-ruin.itch.io/<slug>`, held in one constant.
+- **The listing is The Lists' shape:** the game's own art, one period title, a tagline with the whole arc, a
+  row of four verbs; the short description is the verbs, then the arc. Judge a cover on four weeks, not one.
+- **Every game asks for a rating twice:** once at its first natural stopping point (the end of the first
+  chapter, year or season; a demo's end screen) and once at its end. One line and a link, once each, never a
+  modal. Marked `data-rate="first-stop"` and `data-rate="end"` for the check.
 
-Details, and the failure behind each rule: `references/release.md`.
+Details, and the failure behind each rule: `references/release.md`; the store page, the rating ask and the
+account address, with The Lists' numbers: `references/store-page.md`.

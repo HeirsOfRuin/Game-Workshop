@@ -123,6 +123,12 @@ Pick the shape (game-scaffold `references/architecture.md`):
       (`stamp.mjs` fails otherwise; `update-check.mjs` proves it). (F30)
 - [ ] A chapter jump or sandbox start to reach the new content fast.
 
+**Before any release or update** (game-release `references/store-page.md`)
+- [ ] The rating ask at the first natural stopping point and at the end, once each. (F39)
+- [ ] Every itch link on `https://heirs-of-ruin.itch.io/<slug>`, from one constant. (F40)
+- [ ] Cover and short description in The Lists' shape: own art, period title, the arc, four verbs.
+- [ ] `node tools/check-store.mjs` clean.
+
 ## Playtest protocol
 
 1. Get the save; reproduce on it.
@@ -151,6 +157,7 @@ Pick the shape (game-scaffold `references/architecture.md`):
 | "I haven't won since" | F24 feedback trap |
 | Top players run away, the median starves | F25 snowball and trap; F26 AI not on the same rules |
 | Blank page on itch or in a frame | F29 storage throws (game-release `pre-public.mjs`) |
+| Views but no ratings; a renamed itch account | F39 no rating ask, F40 the address built in (game-release `check-store.mjs`) |
 | Fix pushed, the tester still sees the bug | F30 stale build (game-release `update-check.mjs`) |
 | Identical instant failures on deploy | F33 platform rules |
 | A button greyed out forever after an error | F34 no `finally` |
@@ -181,7 +188,7 @@ Pick the shape (game-scaffold `references/architecture.md`):
 | Path | What |
 |---|---|
 | `references/workflow.md` | Stages, gates, playtest handling, session efficiency, doc templates, commit style |
-| `references/failure-modes.md` | F1-F38 with evidence, detector and fix |
+| `references/failure-modes.md` | F1-F40 with evidence, detector and fix |
 | `references/design-lessons.md` | Decisions, combat, pacing, the world, teaching, history, the author's preferences |
 | `references/game-index.md` | The nine games, the copy map by need (skill first), one-line lessons each |
 | `references/retrospectives/` | The original Silk Road and Cradle write-ups |

@@ -31,7 +31,7 @@ Every count in the copy is read out of the build, not from memory.
 | Tags | <up to 10: period, genre, turn-based, singleplayer, text-based…> |
 | Cover | `cover-630x500.png` (check `cover-preview-315x250.png`: that is how browse listings show it) |
 | Screenshots | 3–5: the loop, the tactics, a consequence; no two alike |
-| Links | The installable copy: https://{{OWNER_LOWER}}.github.io/{{REPO}}/ |
+| Links | The installable copy: https://{{OWNER_LOWER}}.github.io/{{REPO}}/. The itch page itself: https://heirs-of-ruin.itch.io/{{SLUG}} |
 | Community | Comments on, so players can post save codes with bug reports |
 
 Embed measurement (`node tools/embed-measure.mjs`):
@@ -52,7 +52,10 @@ Graphics, Code, Sound). Suggested wording, to adjust to your own:
 
 ## Short description (the one-line field, under ~120 characters)
 
-> <one line: setting, role, the decision that matters>
+The verbs, then the arc (`docs/itch/short-description.txt`; references/store-page.md). The Lists:
+"Joust, court, marry and choose a side: one tourney knight's whole life, from first lance to last page."
+
+> <the four verbs, then who you are and how long it lasts>
 
 ## Known constraints (say them on the page)
 
@@ -64,6 +67,7 @@ Graphics, Code, Sound). Suggested wording, to adjust to your own:
 
 ## Before going public
 
+- [ ] `node tools/check-store.mjs --slug={{SLUG}}` clean: links on heirs-of-ruin.itch.io, the rating ask at the first stopping point and at the end, the short description, the cover's verb row
 - [ ] `npm run check` green on the commit being released
 - [ ] `node tools/pre-public.mjs --zip=release/{{SLUG}}-web.zip` clean (the zip in an itch-style frame, storage blocked and allowed; copy checks)
 - [ ] `node tools/update-check.mjs` clean (a new deploy reaches someone who already has the app)

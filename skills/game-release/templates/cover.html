@@ -1,7 +1,11 @@
 <!doctype html>
 <!-- docs/itch/cover.html: the 630x500 cover, rendered by tools/press.mjs at 2x.
      Use the game's own palette and type; draw the device with the game's own
-     generator where it has one, so the store art cannot drift from the game. -->
+     generator where it has one, so the store art cannot drift from the game.
+     The shape is The Lists' (references/store-page.md): one title in a face that says
+     the period, a tagline that states the whole arc, the game's own art, and a row of
+     four verbs. "Joust · Court · Marry · Choose a side" reads at 315 x 250; a sentence
+     does not. tools/check-store.mjs fails while the verb row is the placeholder. -->
 <html><head><meta charset="utf-8"><style>
   html, body { margin: 0; width: 630px; height: 500px; overflow: hidden; }
   /* a dark ground built from the theme colour, whatever the game's own background:
@@ -18,5 +22,6 @@
   <div class="frame"></div>
   <div class="title">{{NAME}}</div>
   <div class="tag">{{DESCRIPTION}}</div>
-  <div class="foot">Turn-based · Phone or browser · Free</div>
+  <!-- the game's own art here: drawn by its own code (The Lists: heraldry.js shields on a lance) -->
+  <div class="foot">Verb · Verb · Verb · Verb</div>
 </body></html>

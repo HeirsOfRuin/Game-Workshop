@@ -85,5 +85,6 @@ Release sequence (game-release SKILL.md):
   node tools/press.mjs                                  # edit tools/press.config.mjs first
   node tools/build-itch.mjs --site=${vars.WEB_DIR} --slug=${slug} --name="${name}"${single}
   node tools/pre-public.mjs --zip=release/${slug}-web.zip --site=${vars.WEB_DIR}
+  node tools/check-store.mjs --slug=${slug}               # links, both rating asks, short description, verb row
   node tools/make-itch-kit.mjs --slug=${slug} --name="${name}"
 Fill docs/itch/description.html and ITCH.md from the BUILD, not from memory.`);
