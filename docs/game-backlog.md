@@ -89,8 +89,9 @@ wave of settlers arrives before the black powder runs out."
   (Jamestown, Plymouth, Quebec) lived or starved by their dealings with the
   nations around them. The peoples of the new world need their own politics,
   wants and memory, or the game loses its best system and its footing.
-- **Open:** whether House of Adalia exports a dynasty code of its own; how long
-  a game is (one governor's life, or generations); what winning is.
+- **Spec:** `docs/specs/colony-spec.md` (draft, 2026-11-22). Decided there: one
+  life, and the win is the colony standing after the governor's death.
+- **Open:** whether House of Adalia exports a dynasty code of its own.
 
 ### 2. The accidental time traveller (no title yet)
 
@@ -119,20 +120,23 @@ comedy, narrative story telling, and dreppression curing wonder".
 - **Risk 2, the comedy.** It cannot be generated or measured. It needs the same
   first gate Divine Mismanagement had: the author reads a sample chain and says
   whether it is funny, before any engine work.
-- **Open:** which three eras; whether the hero is fixed or made by the player;
-  how much is a sim (money, health, cover) and how much is story.
+- **Spec:** `docs/specs/time-traveller-spec.md` (draft, 2026-11-22). Decided
+  there: Viking Norway and medieval Japan, a hero the player makes, two love
+  interests an era.
+- **Open:** the third era (Rome is proposed).
 
 ## 5. Recommendation
 
-None yet. Both candidates need a one-page spec before they can be compared. The
+None yet. Both candidates have a draft spec in `docs/specs/`, awaiting the
+author's approval. The
 colony is the cheaper build (engine, governorship and dynasty contract exist);
 the time traveller is the larger writing job and the newer kind of game.
 
 ## 6. Next actions
 
-1. **Pick one.**
-2. **Write the one-page spec before any code.** Core loop, the scarce resource,
-   what the player decides each turn, the three ways to lose, the one way to win.
+1. **The author reads both specs** and answers the open questions at the foot
+   of each.
+2. **Pick one.**
 3. **Run the kill gate that fits.** For the colony, the loop as numbers only:
    twenty seasons in a script, with the relief ship late. For the time
    traveller, a written sample the author reads for tone.
