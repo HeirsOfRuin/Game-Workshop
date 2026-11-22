@@ -99,7 +99,7 @@ dreams to travel back in time and see the wonders of the past. Well, you got
 your chance wether you like it or not. Your crazy uncle wrote you a letter,
 saying he finally got it to work. Well upon arriving into his workshop, you find
 a note splattered with... Blood? The note leads you to step through the swirling
-vortex portal that screams \"don't jump in me\"... And you must duck, weave,
+vortex portal that screams "don't jump in me"... And you must duck, weave,
 dive, and swoon your way three 3 eras of our worlds history to save your uncle
 and maybe even find the place you were meant to be. This one is more drama,
 comedy, narrative story telling, and dreppression curing wonder".
