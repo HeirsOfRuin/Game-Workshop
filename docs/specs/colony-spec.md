@@ -1,8 +1,9 @@
 # The Adalian colony (no title yet): one-page spec
 
-Status: **draft for the author's approval, 2026-11-22.** Stage 1 of the
-`game-building` workflow. Nothing is built and nothing here is measured. Every
-number is a starting guess for the kill gate to test.
+Status: **approved to go to its kill gate, 2026-11-22.** Stage 1 of the
+`game-building` workflow is done; the author answered the open questions (see
+Decisions). Nothing is built and nothing here is measured. Every number is a
+starting guess for the kill gate to test.
 
 ## Setting
 
@@ -74,6 +75,33 @@ those neighbours as wolves loses its best system and its honesty.
 - They remember. A raid for corn in year two is still there in year twenty.
 - Selling them powder and guns buys a winter and changes every later war.
 - Later waves of settlers want land. The middle of the game is that pressure.
+
+## Sickness, both ways
+
+Each people carries sicknesses the other has never met. They come in waves, in
+both directions, for the whole game: a ship brings one, a trading season
+brings another back. Neither side is emptied by it. The real history was far
+worse for the nations of the Americas, and this world is deliberately not that
+one (the author's decision, below).
+
+What it is for: a sickness is a shared trouble. A healer who knows the cure
+lives in the other camp. Nursing the neighbours' sick, or being nursed by them,
+is how the deepest ties in the game are made, and refusing is how the worst
+grudges are. Each wave is a scene with people in it, not a number that drops.
+
+## Whose colony
+
+The colony is the Crown's or a chartered company's. The code or the background
+proposes one and the player may overrule it.
+
+| | The Crown's | A company's |
+|---|---|---|
+| Sends | Soldiers, powder, a commission nobody on the shore can question | More ships and more settlers, sooner |
+| Wants | The flag kept flying, the rival realms kept out | Cargo, every year, at a profit |
+| Slow at | Everything; a ship waits on the court | Nothing, while the cargo pays |
+| Removes you when | Your house's enemies have the King's ear | The books show a loss |
+
+Both have to be worth choosing. The gate tests that neither wins on every seed.
 
 ## Your followers
 
@@ -154,6 +182,12 @@ floor and run count.
 6. **Winning is reachable and uncommon.** A careful policy passes the ten-year
    test about one run in three; a careless one almost never.
 
+7. **Crown and company are both worth choosing.** Neither survives more often
+   on every seed, and the two lose in different ways.
+8. **Sickness cuts both ways and ends nobody.** Over a whole life, waves reach
+   both peoples, neither is wiped out by sickness alone, and a colony that
+   shares cures ends with better relations than one that does not.
+
 If claim 1 fails, the game is House of Adalia with trees and should stop here.
 
 ## Assumptions and risks
@@ -167,18 +201,37 @@ If claim 1 fails, the game is House of Adalia with trees and should stop here.
 - **The history is from memory.** Jamestown's supply missions and starving
   winter, the gentlemen who would not work, the dates above: all to be checked
   and sourced before they shape numbers.
-- **Sickness the settlers bring.** It emptied whole nations in the real
-  history. Whether this world has it is the author's decision, and it changes
-  the tone of the whole game.
+- **Sickness is softer here than it was.** That is a decision, and the game
+  should say so once, plainly, in its notes, so that nobody takes it for
+  history.
 - **Canon.** Nothing in `canon.md` says what lies across the Grey Ocean. The
   new world, its nations and its names are all new canon and need a sheet of
   their own before content is written.
 
+## For the session that builds this
+
+This page is the whole brief; the chat it came from is gone. In order:
+
+1. Read `Game-Workshop/skills/game-building/SKILL.md` and follow its stages.
+   Skipping a stage is allowed; skipping it silently is not.
+2. Lay the repo with `Game-Workshop/skills/game-scaffold/scripts/init.mjs`,
+   shape C (Vite, Preact, TypeScript, YAML content), with `game-narrative`'s
+   story engine. Put this page in it as `docs/SPEC.md`.
+3. Write the repo's `CLAUDE.md` on the pattern of the other games': read the
+   SPEC first, `npm run check` before every commit, numbers carry their run
+   counts, decisions go in the SPEC's dated table in the author's words.
+4. Run the kill gate above as numbers only, before any screen. Read
+   *House of Adalia* (`games/house` in the Knight of Adalia monorepo) for the
+   governorship and for whether it exports a code.
+5. Check and source the history marked "from memory" before it shapes a number
+   or a scene.
+6. Add the game to `Game-Workshop/docs/game-backlog.md` section 1 and write
+   what the build teaches back into the skills.
+
 ## Open for the author
 
-1. The sickness question above.
-2. Is the colony Adalia's own, or a company's with the Crown's charter?
-3. A title.
+1. A title.
+2. The new world's canon sheet: its nations, names and coast.
 
 ## Decisions
 
@@ -187,3 +240,6 @@ If claim 1 fails, the game is House of Adalia with trees and should stop here.
 | 2026-11-22 | **One life.** The author: "Colony is one person's life. You create your character at the start of the game, with heavily influenced added bonuses coming from your previous games saves or from the quick decision backgrounds you choose." |
 | 2026-11-22 | **The win.** The author: "Winning is seeing the colony surpass your own life." Read here as: the colony stands ten years after the governor's death. The ten is a guess. |
 | 2026-11-22 | **The premise.** The author: "I want to take the governorship of HoA, and bring it to the untamed wild, where you must manage your followers, your life, and pray the next wave of settlers arrives before the black powder runs out." |
+| 2026-11-22 | **Sickness.** Asked whether the settlers bring disease that empties the native nations. The author: "They bring some, but not at the extent reality suggest it did. I'm thinking more both the natives and the colonists deal with recurring waves of new sicknesses from each other, but also have the potential for great benefits, tragedy, drama, and relationship building between multiple groups of them." |
+| 2026-11-22 | **Crown or company.** The author: "It is either one, it can be a choice that is determined on the background code or choice! Or overruled by the player choosing. Both should give benefits and cons". The table of what each sends and wants is a proposal. |
+| 2026-11-22 | **Built alongside the time traveller,** each in its own repo and session. The author: "I want to do both simultaneously, so set them both up and I'll export the spec sheets to different sessions with their own repos". |

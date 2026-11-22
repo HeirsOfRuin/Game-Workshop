@@ -1,8 +1,9 @@
 # The accidental time traveller (no title yet): one-page spec
 
-Status: **draft for the author's approval, 2026-11-22.** Stage 1 of the
-`game-building` workflow. Nothing is built and nothing here is measured. Scene
-counts are estimates.
+Status: **approved to go to its gates, 2026-11-22.** Stage 1 of the
+`game-building` workflow is done; the author answered the open questions (see
+Decisions). Nothing is built and nothing here is measured. Scene counts are
+estimates.
 
 ## Setting
 
@@ -17,14 +18,14 @@ because people already love it:
 |---|---|---|
 | Viking Norway | The western fjords, about 870, as Harald Fairhair is making one kingdom of many | Fixed by the author. Reuses Vikingr's research and style guide; later than Vikingr's 830 to 865 |
 | Medieval Japan | A small province in the 1560s, the age of warring states | Fixed by the author; the year is proposed. It is the one Japanese period where a nobody rose to rule, so a zero-to-hero story is true to it. Foreigners had been landing since the 1540s, so a stranger is at least thinkable |
-| The third | Rome and the Bay of Naples, AD 79 to 80: Vesuvius, then the opening of the Colosseum | **Proposed, not decided.** Ten years after Imperator, so the research carries and the story does not repeat. A city, where the other two are a fjord and a castle town |
+| The third | Rome and the Bay of Naples, AD 79 to 80: Vesuvius, then the opening of the Colosseum | Fixed by the author; the years are proposed. Ten years after Imperator, so the research carries and the story does not repeat. A city, where the other two are a fjord and a castle town |
 
 Why it is a game: a modern person in the past has nothing (no kin, no name, no
 trade, no words) and knows things nobody there knows. Both facts are dangerous.
 
 ## Shape
 
-Two acts. This is the answer to a conflict in the brief: the story chases
+Two acts, approved by the author. This is the answer to a conflict in the brief: the story chases
 through three eras, and the player is meant to live a full life in the one they
 love.
 
@@ -101,8 +102,7 @@ spine: it can be declined, and the life is still a life.
 
 Because this is meant to leave the player better than it found them, a loss
 ends a chapter and not the game: the story bends to a harder road, and only the
-last chapter's losses are final. That softness is a proposal and the author's
-call.
+last chapter's losses are final. The author agreed to this.
 
 ## The one way to win
 
@@ -118,7 +118,7 @@ ends at the same door with the same question.
 |---|---|
 | The story engine: scenes, checks, calendar, `hero.sex`, saves and codes | `game-narrative` (shape C) |
 | Norway: places, ships, the hall, the style guide | Vikingr |
-| Rome, if chosen: the city, the year before | Imperator |
+| Rome: the city, the decade before | Imperator |
 | The deck: every authored line has an id and is never shown twice | Divine Mismanagement |
 | The continuity checker (text must not assume a choice not made) | Knight of Adalia |
 
@@ -184,14 +184,32 @@ Mismanagement used, and nothing measures it but the author.
 - **The film Timeline** is the feeling aimed at, as the author said. Nothing of
   its story, people or places is used.
 
+## For the session that builds this
+
+This page is the whole brief; the chat it came from is gone. In order:
+
+1. Read `Game-Workshop/skills/game-building/SKILL.md` and follow its stages.
+   Skipping a stage is allowed; skipping it silently is not.
+2. Lay the repo with `Game-Workshop/skills/game-scaffold/scripts/init.mjs`,
+   shape C (Vite, Preact, TypeScript, YAML content), with `game-narrative`'s
+   story engine. Put this page in it as `docs/SPEC.md`.
+3. Write the repo's `CLAUDE.md` on the pattern of the other games': read the
+   SPEC first, `npm run check` before every commit, numbers carry their run
+   counts, decisions go in the SPEC's dated table in the author's words.
+4. Gate A first: write the 3,000-word sample and stop for the author's
+   verdict. No engine work before it. Then Gate B as numbers only. Read
+   Vikingr's `content/style-guide.md` and `docs/DESIGN.md` before writing
+   Norway.
+5. Check and source the history marked "from memory" before it shapes a number
+   or a scene.
+6. Add the game to `Game-Workshop/docs/game-backlog.md` section 1 and write
+   what the build teaches back into the skills.
+
 ## Open for the author
 
-1. **The third era.** Rome is proposed. The alternatives from ground already
-   covered are the Navy in 1793 and Missouri in the 1870s. France and Italy in
-   the 1300s are left out as too close to four games already built.
-2. **The two-act shape,** and the door that stays shut for a set time.
-3. **How soft losing is.**
-4. **A title.**
+1. A title.
+2. The exact years and places, once the history is checked.
+3. Whether love scenes close the door (proposed above).
 
 ## Decisions
 
@@ -201,3 +219,7 @@ Mismanagement used, and nothing measures it but the author.
 | 2026-11-22 | **The eras.** The author: "The three eras are Viking Norway, medieval japan, and somewhere similar to what I've done but not the same as these two. My goal is to have 3 distinct eras and stories that will speak to a variety of players." The years, and Rome as the third, are proposals. |
 | 2026-11-22 | **What it is for.** The author: "The main goal is that they get to see and interact with a slice of the era they so enjoy. A place whether they can choose 1 of 2 love interests, find a fulfilling life, and be the person they were born to be. A zero to hero type game that feels personal. One that resonates with the movie Timeline." |
 | 2026-11-22 | **The hero and the romance.** The author: "The hero is the person they create. Either male or female. The love interests will be whatever they declare as their gender preference, thoigh I'm.not real interested in doing the whole non-binary. And the dating isn't the main story, it's a major part though. The other part is the world exploration/engagement, and rpg style adventure." |
+| 2026-11-22 | **The third era is Rome.** Offered Rome, the Navy in 1793 or Missouri in the 1870s. The author: "rome". |
+| 2026-11-22 | **The two-act shape,** with a door home that stays shut for a set time. Asked whether he accepted it. The author: "Yes". |
+| 2026-11-22 | **Soft losing:** a loss ends a chapter and not the game, except in the last chapter. The author: "I agree". |
+| 2026-11-22 | **Built alongside the Adalian colony,** each in its own repo and session. The author: "I want to do both simultaneously, so set them both up and I'll export the spec sheets to different sessions with their own repos". |

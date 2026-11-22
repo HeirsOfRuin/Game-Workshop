@@ -123,25 +123,21 @@ comedy, narrative story telling, and dreppression curing wonder".
 - **Spec:** `docs/specs/time-traveller-spec.md` (draft, 2026-11-22). Decided
   there: Viking Norway and medieval Japan, a hero the player makes, two love
   interests an era.
-- **Open:** the third era (Rome is proposed).
+- **Decided since:** the third era is Rome; the two-act shape; soft losing.
 
 ## 5. Recommendation
 
-None yet. Both candidates have a draft spec in `docs/specs/`, awaiting the
-author's approval. The
+Both are going ahead at once, on the author's decision (2026-11-22): "I want
+to do both simultaneously". Each spec in `docs/specs/` is approved and carries
+its own instructions for the session that builds it. The
 colony is the cheaper build (engine, governorship and dynasty contract exist);
 the time traveller is the larger writing job and the newer kind of game.
 
 ## 6. Next actions
 
-1. **The author reads both specs** and answers the open questions at the foot
-   of each.
-2. **Pick one.**
-3. **Run the kill gate that fits.** For the colony, the loop as numbers only:
-   twenty seasons in a script, with the relief ship late. For the time
-   traveller, a written sample the author reads for tone.
-4. **Only then** scaffold: `skills/game-scaffold/scripts/init.mjs` lays a repo that
-   passes its own check on day one; the copy map (`skills/game-building/references/game-index.md`)
-   says which game already solved the rest.
-5. **Follow the `game-building` skill** (`skills/game-building/SKILL.md`), and
-   re-read its scope-widening check at the first expansion, not at the start.
+1. **The author opens a repo and a session for each game** and gives it the
+   spec. Each spec ends with the steps for that session.
+2. **The colony runs its numbers gate; the time traveller writes its sample for
+   the author to read.** Neither draws a screen before its gate.
+3. **Each new repo is added to the table in section 1** when it exists. That
+   table is also six games behind and needs bringing up to fifteen.
