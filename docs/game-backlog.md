@@ -39,7 +39,8 @@ process.
 - **Deep Time (working title)**, raised 2026-11-24. Steer a lineage from a
   Devonian shore tetrapod to an early dinosaur over five eras: keep or refuse
   mutations, pay for every trait in food, survive the die-offs. Pixel art from
-  layered parts. One-page spec in `docs/deep-time-spec.md`, awaiting approval.
+  layered parts. Spec approved the same day and moved to the `Dinosaurs` repo
+  (`docs/SPEC.md`); kill gate run once, faults in its `docs/KILLGATE.md`.
 
 ## 3. The design filter
 
