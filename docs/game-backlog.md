@@ -36,6 +36,11 @@ across. Anything raised in chat and not scaffolded into a repo left no trace.
 Append a two-line entry when one comes up — name, core loop. That is the whole
 process.
 
+- **Deep Time (working title)**, raised 2026-11-24. Steer a lineage from a
+  Devonian shore tetrapod to an early dinosaur over five eras: keep or refuse
+  mutations, pay for every trait in food, survive the die-offs. Pixel art from
+  layered parts. One-page spec in `docs/deep-time-spec.md`, awaiting approval.
+
 ## 3. The design filter
 
 Anything on the candidate list has to clear the constraints the existing builds
