@@ -36,6 +36,12 @@ across. Anything raised in chat and not scaffolded into a repo left no trace.
 Append a two-line entry when one comes up — name, core loop. That is the whole
 process.
 
+- **Middle Sea** (working title), picked 2026-11-28, Stage 1 spec drafted at
+  `docs/specs/middle-sea.md`, no repo yet. A dynasty rules a state on a real
+  map of Europe and the Middle East, era by era between 1000 BCE and 1600 CE
+  (first era c. 1100). Core loop: build the ruler's authority in winter, spend
+  it on the map in summer, and see whether the heir can hold what was painted.
+
 ## 3. The design filter
 
 Anything on the candidate list has to clear the constraints the existing builds
