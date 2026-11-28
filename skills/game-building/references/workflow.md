@@ -35,6 +35,16 @@ Once the real game exists, **retire the prototype**. CO marked the Python sim as
 the Stage 1 record and moved measurement into the shipped functions ("the harness
 cannot drift from the game because it is the game"). Two models drift.
 
+**Prove the port before retiring, and keep the proof.** Colony of Adalia (2026-11) wrote
+its kill gate in JS with named RNG streams (a stream is rebuilt from seed, turn and
+system, so a run's whole random state is its seed), then ported it to TypeScript line for
+line in the same arithmetic order. The proof was exact, not "within error": the port and
+the prototype gave the same end state, compared as sorted-key JSON, in 5,000 of 5,000 runs,
+and the gate's tables diffed identical at 67,000 runs. Lazily created fields (a stat set
+only when it first happens) were the only differences to normalise. Then a fingerprint
+(a hash of end states, 25 policy arms x 30 seeds) went into the tests, so the proof
+outlives the prototype and every later neutral refactor is proved neutral by it (F27).
+
 ### Stage 4: instruments ship with the engine
 VK DESIGN §18: "Built alongside the engine from the first commit, not later."
 Each harness gets its progress assertion the day it exists (F11). The cheapest
